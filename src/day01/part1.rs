@@ -1,4 +1,4 @@
-pub fn solve_part_one(input: &String) -> String {
+pub fn solve_part_one(input: &str) -> String {
     let mut sum = 0;
     for line in input.lines() {
         let digits: Vec<u32> = line
@@ -9,5 +9,5 @@ pub fn solve_part_one(input: &String) -> String {
         sum += digits[0] * 10 + digits[digits.len() - 1];
     }
 
-    return sum.to_string();
+    sum.to_string()
 }

@@ -1,6 +1,6 @@
-pub fn solve_part_two(input: &String) -> String {
+pub fn solve_part_two(input: &str) -> String {
     let number_literals = [
-        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"
+        "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
     ];
 
     let mut sum = 0;
@@ -9,9 +9,9 @@ pub fn solve_part_two(input: &String) -> String {
     for line in input.lines() {
         for i in 0..line.len() {
             let slice = &line[i..];
-            if slice.len() == 0 { break }
+            if slice.is_empty() { break; }
 
-            let first_char = slice.chars().nth(0).unwrap();
+            let first_char = slice.chars().next().unwrap();
             if first_char.is_numeric() {
                 digits.push(first_char.to_digit(10).unwrap());
             }
@@ -22,11 +22,10 @@ pub fn solve_part_two(input: &String) -> String {
                 }
             }
         }
-        
-        sum += digits[0] * 10 + digits[digits.len() - 1];
 
+        sum += digits[0] * 10 + digits[digits.len() - 1];
         digits.clear();
     }
 
-    return sum.to_string();
+    sum.to_string()
 }

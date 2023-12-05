@@ -1,10 +1,10 @@
-pub fn solve_part_two(input: &String) -> String {
+pub fn solve_part_two(input: &str) -> String {
     let mut sum = 0;
 
     for line in input.lines() {
         let line = line.trim();
         if line.is_empty() { continue }
-        let list_start = line.find(":").expect("Ill formated input!");
+        let list_start = line.find(':').expect("Ill formated input!");
 
         let cube_sets = &line[list_start + 1..];
 
@@ -23,20 +23,20 @@ pub fn solve_part_two(input: &String) -> String {
 
             for (count, color) in cubes {
                 let count = count.parse::<i32>().unwrap();
-
-                match color {
-                    "red" => if count > min_red { min_red = count; }
-                    "green" => if count > min_green { min_green = count; }
-                    "blue" => if count > min_blue { min_blue = count; }
+                let min = match color {
+                    "red"   => &mut min_red,
+                    "green" => &mut min_green,
+                    "blue"  => &mut min_blue,
                     _ => panic!()
                 };
+
+                if count > *min { *min = count; }
             }
 
         }
         
-        let pow = min_red * min_green * min_blue;
-        sum += pow;
+        sum += min_red * min_green * min_blue;
     }
 
-    return sum.to_string();
+    sum.to_string()
 }

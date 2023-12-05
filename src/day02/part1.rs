@@ -1,8 +1,8 @@
-pub fn solve_part_one(input: &String) -> String {
+pub fn solve_part_one(input: &str) -> String {
     let mut sum = 0;
 
     for line in input.lines() {
-        let list_start = line.find(":").expect("Ill formated input!");
+        let list_start = line.find(':').expect("Ill formated input!");
 
         let game_id = &line["Game ".len()..list_start];
         let cube_sets = &line[list_start + 1..];
@@ -38,5 +38,5 @@ pub fn solve_part_one(input: &String) -> String {
         }
     }
 
-    return sum.to_string();
+    sum.to_string()
 }

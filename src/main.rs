@@ -1,6 +1,3 @@
-#![allow(dead_code)]
-#![allow(unused_variables)]
-
 pub mod common;
 pub mod day01;
 pub mod day02;
@@ -11,9 +8,8 @@ fn main() {
     let days = vec![day01::day_data(), day02::day_data()];
 
     println!(
-        "| {}{}{} |",
+        "| {}๑(◕‿◕)๑ Advent of Code  2023{} |",
         " ".repeat(12),
-        "๑(◕‿◕)๑ Advent of Code  2023",
         " ".repeat(12),
     );
 
