@@ -3,8 +3,7 @@ pub fn solve_part_one(input: &String) -> String {
     for line in input.lines() {
         let digits: Vec<u32> = line
             .chars()
-            .filter(|c| c.is_digit(10))
-            .map(|c| c.to_digit(10).unwrap())
+            .filter_map(|c| c.to_digit(10))
             .collect();
 
         sum += digits[0] * 10 + digits[digits.len() - 1];
