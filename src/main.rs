@@ -2,8 +2,6 @@ pub mod common;
 pub mod day01;
 pub mod day02;
 
-pub fn banana() {}
-
 fn main() {
     let days = vec![day01::day_data(), day02::day_data()];
 
